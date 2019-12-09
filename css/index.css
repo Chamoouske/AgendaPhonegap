@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+.agenda_item_lista h3, .agenda_item_lista h5{
+    margin: 0px;
+}
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }

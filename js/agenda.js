@@ -38,6 +38,18 @@ function agenda_insert_db(tx){
     agenda_view();
 }
 
+// Prepara para apagar um registro da tabela Agenda
+function agenda_delete(agenda_id){
+    $("#agenda_id_delete").val(agenda_id);
+    db.transaction(agenda_delete_db, errorDB, successDB)
+}
+
+function agenda_delete_db(tx){
+    var agenda_id_delete = $("#agenda_id_delete").val();
+    tx.executeSql("DELETE FROM Agenda WHERE id = " + agenda_id_delete);
+    agenda_view();
+}
+
 // Prepara para exibir os registros da tabela Agenda
 function agenda_view(){
     db.transaction(agenda_view_db, errorDB, successDB);
@@ -57,6 +69,7 @@ function agenda_view_data(tx, results){
         $('#agenda_listagem').append("<tr class='agenda_item_lista'>" + 
             "<td><h3>" + results.rows.item(i).nome + "</h3></td>" + 
             "<td><h3>" + results.rows.item(i).tel + "</h3></td>" +
+            "<td><input type='button' class='btn btn-lg btn-danger' value='X' onclick='agenda_delete(" + results.rows.item(i).id + ")'></td>" +
         "</tr>");
     }
 }
