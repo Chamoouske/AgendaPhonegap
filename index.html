@@ -18,8 +18,9 @@
     <script type="text/javascript" src="js/agenda.js"></script>
 
     <input type="hidden" id="agenda_id_delete">
+    <input type="hidden" id="agenda_id_update">
 
-    <div class="container" align="center">
+    <div class="container" align="center" id="tela_padrao">
         <h2>Agenda Telefonica</h2>
         <div class="row"> <!-- Formulário para inserção-->
             <div class="col-md-12">
@@ -44,8 +45,29 @@
                     </thead>
                     <tbody id="agenda_listagem">
                     </tbody>
-
                 </table>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="tela_edicao" hidden>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="button" class="btn btn-lg btn-primary form-control" value="Voltar" onclick="agenda_update_fechar_tela()">
+                <br>
+                <h3>Editando Contato</h3>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Nome</h4>
+                <input type="text" class="form-control" id="agenda_nome_update">
+                <br>
+                <h4>Telefone</h4>
+                <input type="text" class="form-control" id="agenda_telefone_update">
+                <br><br>
+                <input type="button" class="btn btn-lg btn-primary form-control" value="Salvar edição" onclick="agenda_update()">
+                <br><br>
             </div>
         </div>
     </div>
